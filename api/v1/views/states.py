@@ -41,7 +41,8 @@ def post_state():
     if not new_obj:
         abort(400, "Not a JSON")
     if 'name' not in new_obj:
-        abort(400, "Missing name")
+        abort(400, "Missing 'name' field JSON")
+
     obj = State(**new_obj)
     storage.new(obj)
     storage.save()
